@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    node {
-      
+  agent {      
         stages {
     
           stage('Git Checkout') {
