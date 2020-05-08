@@ -1,10 +1,10 @@
 node {
-        parameters {
-          choice(name: 'Continue',
-          choices: 'Yes\nNo',
-          defaultValue: 'Yes',
-          description: 'Do you want to continue')
-        }
+        properties([
+                parameters([
+                booleanParam(name: 'Continue', choices: 'Yes\nNo', defaultValue: No, description: "Do you want to continue"),
+                ])
+        ])
+
         stage('Git Checkout') {
 
               echo "Begin checkout of the git project"
