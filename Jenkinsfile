@@ -1,6 +1,10 @@
 pipeline {
-  agent any
-  
+  agent {
+    
+    node { 
+      label 'ghost20'
+      customWorkspace '/home/ingestion-5gcs/artifacts-test'
+      }
       def remote = [:]
       remote.name = 'OCP-Tester'
       remote.host = "${params.SUT_HOST}"
