@@ -6,7 +6,7 @@ pipeline {
       description: 'Do you want to continue')
     choice(name: 'Stop_Engine',
       choices: 'Yes\nNo',
-      description: "Stop the engine \'Yes\' or \'No\')      
+      description: "Stop the engine Yes or No")      
   }
   
   stages {
