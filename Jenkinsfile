@@ -1,6 +1,6 @@
 pipeline {
   agent any
-    
+  
   parameters {
     choice(name: 'Continue',
       choices: 'Yes\nNo',
@@ -26,6 +26,8 @@ pipeline {
   }
 
   stages {
+    
+    node {
   
     def remote = [:]
     remote.name = 'OCP-Tester'
@@ -70,6 +72,7 @@ pipeline {
       
       sshCommand remote: remote, command: "cd ${checkout_dir}/src/5GCS-nf/; sh test.sh ${charts_list}"
       }
+    }
     }
  }
 }
