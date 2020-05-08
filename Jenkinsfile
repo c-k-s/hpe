@@ -5,7 +5,7 @@ node {
       remote.user = "${params.SUT_USER}"
       remote.password = "${params.SUT_PASSWORD}"
       remote.allowAnyHosts = true
-        def checkout_dir = "${params.CHECKOUT_DIR"}
+      def checkout_dir = "${params.CHECKOUT_DIR}"
         
         properties([
                 parameters([
