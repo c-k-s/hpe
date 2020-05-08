@@ -18,12 +18,13 @@ node {
                 //extended-choice(name: 'OPTIONS', description: "Available options")
                       ])
       ])        
-      parameters:
-            - extended-choice:
+      parameters([
+            extended-choice(
                   name: OPTIONS
                   description: "Available options"
                   type: 'PT_CHECKBOX'
-                  value: OptionA,OptionB,OptionC
+                  value: OptionA,OptionB,OptionC)
+            ])
 
         stage('Git Checkout') {
 
