@@ -27,6 +27,6 @@ node {
                 checkout scm
               }
               sshPut remote: remote, from: "${checkout_dir}", into: '.'
-              sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.CHARTS_LIST}"
+              sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.CHARTS_LIST} ${params.SUT_HOST}"
           }
 }
