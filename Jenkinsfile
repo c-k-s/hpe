@@ -2,6 +2,7 @@ node {
         parameters {
           choice(name: 'Continue',
           choices: 'Yes\nNo',
+          defaultValue: 'Yes',
           description: 'Do you want to continue')
         }
         stage('Git Checkout') {
