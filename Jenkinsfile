@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    choice(name: "Continue \'Y\' or \'N\' ",
+    choice(name: "Continue \'Yes\' or \'No\' ",
       choices: 'Yes\n,No',
       description: 'Do you want to continue')
   }
