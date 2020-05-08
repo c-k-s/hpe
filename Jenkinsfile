@@ -5,7 +5,7 @@ node {
       remote.user = "${params.SUT_USER}"
       remote.password = "${params.SUT_PASSWORD}"
       remote.allowAnyHosts = true
-      def checkout_dir = "${params.CHECKOUT_DIR}"
+      
         
         properties([
                 parameters([
@@ -22,7 +22,7 @@ node {
 
               echo "Begin checkout of the git project"
               echo "${params.Continue}"
-              checkout_dir=${params.CHECKOUT_DIR}
+              checkout_dir = "${params.CHECKOUT_DIR}"
               dir ("${checkout_dir}") {
                 checkout scm
               }
