@@ -15,9 +15,15 @@ node {
                 string(name: 'SUT_USER', defaultValue:'ingestion-5gcs', description: 'SUT username'),
                 string(name: 'SUT_PASSWORD', defaultValue:'ingestion-5gcs', description: 'SUT password'),
                 string(name: 'CHARTS_LIST', defaultValue:'hpe-nf-udm', description: 'CHARTS List'),
-                extended-choice(name: 'OPTIONS', description: "Available options"),
+                //extended-choice(name: 'OPTIONS', description: "Available options")
                       ])
       ])        
+      parameters:
+            - extended-choice:
+                  name: OPTIONS
+                  description: "Available options"
+                  type: 'PT_CHECKBOX'
+                  value: OptionA,OptionB,OptionC
 
         stage('Git Checkout') {
 
