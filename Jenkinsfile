@@ -7,7 +7,7 @@ pipeline {
   }
   
   stages {
-    stage('Example) {
+    stage('Example') {
       steps {
         echo 'Hello World'
         echo "Your choice: ${params.Continue}"
