@@ -16,7 +16,7 @@ pipeline {
         echo "Your choice: ${params.Continue}"
         }
      }
-    stage(Engine stop') {
+    stage('Engine stop') {
       steps {
         echo "Do you want to stop the engine ? "
 	echo "Your choice is ${params.Stop_Engine}"
