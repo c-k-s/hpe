@@ -1,5 +1,13 @@
 pipeline {
   agent any
+  
+      def remote = [:]
+      remote.name = 'OCP-Tester'
+      remote.host = "${params.SUT_HOST}"
+      remote.user = "${params.SUT_USER}"
+      remote.password = "${params.SUT_PASSWORD}"
+      remote.allowAnyHosts = true  
+  
         stages {
     
           stage('Git Checkout') {
