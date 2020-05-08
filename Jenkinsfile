@@ -1,7 +1,7 @@
 node {
         properties([
                 parameters([
-                booleanParam(name: 'Continue', choices: 'Yes\nNo', defaultValue: No, description: "Do you want to continue"),
+                booleanParam(name: 'Continue', choices: 'Yes\nNo', defaultValue: 'No', description: "Do you want to continue"),
                 ])
         ])
 
