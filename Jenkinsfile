@@ -20,9 +20,9 @@ node {
       ])        
       parameters([
             extended-choice(
-                  name: OPTIONS
-                  description: "Available options"
-                  type: 'PT_CHECKBOX'
+                  name: OPTIONS,
+                  description: "Available options",
+                  type: 'PT_CHECKBOX',
                   value: OptionA,OptionB,OptionC)
             ])
 
