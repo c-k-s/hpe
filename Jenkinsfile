@@ -1,17 +1,5 @@
 pipeline {
   agent any
-  
-  def remote = [:]
-  remote.name = 'OCP-Tester'
-  remote.host = "${params.SUT_HOST}"
-  remote.user = "${params.SUT_USER}"
-  remote.password = "${params.SUT_PASSWORD}"
-  remote.allowAnyHosts = true
-       
-  
-  //def charts_list = "hpe-nf-udm hpe-sde-udr"    
-    
- 
     
   parameters {
     choice(name: 'Continue',
@@ -38,6 +26,14 @@ pipeline {
   }
 
   stages {
+  
+    def remote = [:]
+    remote.name = 'OCP-Tester'
+    remote.host = "${params.SUT_HOST}"
+    remote.user = "${params.SUT_USER}"
+    remote.password = "${params.SUT_PASSWORD}"
+    remote.allowAnyHosts = true  
+    
     def checkout_dir = ${params.CHECKOUT_DIR}
     def charts_list = ${params.CHARTS_LIST}
     stage('Git Checkout') {
@@ -77,4 +73,3 @@ pipeline {
     }
  }
 }
-
