@@ -1,9 +1,17 @@
-node{
-  stage('SCM Checkout'){
-     git 'https://github.com/c-k-s/hpe.git'
-
-   }
-  stage('Compile-Package'){
-    sh 'mvn package'
-   }
+pipeline {
+  agent any
+  parameters {
+    choice(name: Continue 'Y' or 'N',
+      choices: 'Yes\n,No',
+      description: 'Do you want to continue')
+  }
+  stages {
+    stage('Example) {
+      steps {
+        echo 'Hello World'
+        echo "Your choice: ${params.choice}"
+        }
+     }
+  }  
 }
+
