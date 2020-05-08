@@ -15,7 +15,7 @@ node {
                 string(name: 'SUT_USER', defaultValue:'ingestion-5gcs', description: 'SUT username'),
                 string(name: 'SUT_PASSWORD', defaultValue:'ingestion-5gcs', description: 'SUT password'),
                 string(name: 'CHARTS_LIST', defaultValue:'hpe-nf-udm', description: 'CHARTS List'),
-                extended-choice(name: 'OPTIONS', description: "Available options", type: 'multi-select', value: "foo|bar|select", 'visible-items': 6, 'multi-select-delimiter': '|', 'default-value': 'hpe-nf-udm')
+                extended-choice(name: 'OPTIONS', description: "Available options", type: 'multi-select', value: "foo|bar|select", visibleItems: 6, multiSelectDelimiter: '|', defaultValue: 'hpe-nf-udm')
                       ])
       ])        
 
