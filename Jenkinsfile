@@ -15,7 +15,7 @@ node {
                 string(name: 'SUT_USER', defaultValue:'ingestion-5gcs', description: 'SUT username'),
                 string(name: 'SUT_PASSWORD', defaultValue:'ingestion-5gcs', description: 'SUT password'),
                 string(name: 'CHARTS_LIST', defaultValue:'hpe-nf-udm', description: 'CHARTS List'),
-                extended-choice(name: 'OPTIONS', description: "Available options", type: 'multi-select', value: 'hpe-nf-udm|hpe-nf-ausf|hpe-sde-udr|"hpe-nf-udm hpe-nf-ausf"|"hpe-nf-udm hpe-nf-ausf hpe-sde-udr"|"hpe-nf-udm hpe-nf-ausf hpe-sde-udr hpe-sde-udsf"', visible-items: 6, multi-select-delimiter: '|', default-value: hpe-nf-udm)
+                extended-choice(name: 'OPTIONS', description: "Available options", type: 'multi-select', value: 'hpe-nf-udm|hpe-nf-ausf|hpe-sde-udr|"hpe-nf-udm hpe-nf-ausf"|"hpe-nf-udm hpe-nf-ausf hpe-sde-udr"|"hpe-nf-udm hpe-nf-ausf hpe-sde-udr hpe-sde-udsf"', visible-items: 6, multi-select-delimiter: '|', default-value: "hpe-nf-udm hpe-nf-ausf")
                       ])
       ])        
 
@@ -29,7 +29,8 @@ node {
               }
               sshPut remote: remote, from: "${checkout_dir}", into: '.'
               sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.CHARTS_LIST} ${params.SUT_HOST}"
-              sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.EXTENDED_CHOICE}"
+              //sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.EXTENDED_CHOICE}"
+              sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.OPTIONS}"
               def new_exclude_patterns = [[pattern: "reports-*/**", type: 'EXCLUDE']]
               cleanWs deleteDirs: true, skipWhenFailed: true, patterns: new_exclude_patterns
               sshRemove remote: remote, path: "/tmp/reports"
