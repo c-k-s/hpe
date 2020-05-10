@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo ${BUILD_NUMBER}
+echo $3
 echo $1
 echo $#
 echo $2
