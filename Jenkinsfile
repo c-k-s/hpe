@@ -28,10 +28,10 @@ node {
               }
               sshPut remote: remote, from: "${checkout_dir}", into: '.'
               sshCommand remote: remote, command: "cd ${checkout_dir}/; sh test.sh ${params.CHARTS_LIST} ${params.SUT_HOST} ${BUILD_NUMBER}"
-              def new_exclude_patterns = [[pattern: "reports-*/**", type: 'EXCLUDE']]
-              cleanWs deleteDirs: true, skipWhenFailed: true, patterns: new_exclude_patterns
-              sshRemove remote: remote, path: "/tmp/reports"
-              sshRemove remote: remote, path: "${CHECKOUT_DIR}"
+              //def new_exclude_patterns = [[pattern: "reports-*/**", type: 'EXCLUDE']]
+              //cleanWs deleteDirs: true, skipWhenFailed: true, patterns: new_exclude_patterns
+              //sshRemove remote: remote, path: "/tmp/reports"
+              //sshRemove remote: remote, path: "${CHECKOUT_DIR}"
           }
       
           stage('Reports archival on remote node') {
