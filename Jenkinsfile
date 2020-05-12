@@ -33,4 +33,16 @@ node {
               sshRemove remote: remote, path: "/tmp/reports"
               sshRemove remote: remote, path: "${CHECKOUT_DIR}"
           }
+      
+          stage('Reports archival on remote node') {
+            // Cleanup SUT
+            echo "=========================================================================="
+            echo "Archival of reports on remote node"
+            echo "=========================================================================="
+              
+            sleep 1
+            sshCommand remote: remote, command: 'echo "Reports collection is in progress"'
+            //sshCommand remote: remote, command: "cd ${checkout_dir}/src/5GCS-nf/; sh reportsArchive.sh ${params.CHARTS_LIST} ${BUILD_NUMBER} ${params.NF_REPORT_PATH} ${params.NF_CUSTOMIZED_FILES_PATH}"
+            sshGet remote: remote, from: '/home/ingestion-5gcs/iot-test/destinations/report-1171-hpe-nf-udm---OPENSHIFT.report', into: '/var/lib/jenkins/workspace/my-test', override: true
+    }
 }
