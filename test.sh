@@ -7,3 +7,4 @@ echo $2
 echo "Hello from the script"
 echo `pwd`
 echo "On development branch"
+echo "Hello again"
